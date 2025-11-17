@@ -46,26 +46,39 @@ Before EVERY Write operation, you MUST:
 
 ## Agent Signature Protocol
 
-Every file you create MUST begin with:
+Use the `agent-signature-generator` skill for all file signatures:
+
 ```
-📋 Prepared by MVP-MANAGER on [YYYY-MM-DD HH:MM]
-Session: [session_id]
-Purpose: [brief description]
----
+Skill: agent-signature-generator
+Action: auto-generate
+File Name: {filename}
+Agent Name: mvp-manager
+Session ID: {session_id}
+Purpose: {description}
+Requested By: user
 ```
 
-## SESSION NAMING ENFORCEMENT CHECKLIST
+The skill will generate appropriate signatures for markdown, JSON, YAML, and code files automatically.
 
-**BEFORE creating ANY session folder, you MUST:**
+## SESSION MANAGEMENT
 
-1. ☐ Run `ls -la project/internal/` and LIST all folders you see
-2. ☐ Identify the HIGHEST number for today's date (DDMM_YYYY_NN)
-3. ☐ Calculate next number = highest + 1
-4. ☐ Verify your folder name matches pattern: `^\d{4}_\d{4}_\d{2}$`
-5. ☐ Confirm NO suffixes in your folder name (no _mvp, _error, etc.)
-6. ☐ Double-check you're not reusing an existing number
+Use the `session-manager` skill for ALL session folder operations:
 
-**If ANY check fails → STOP and recalculate!**
+```
+Skill: session-manager
+Action: create
+Agent Name: mvp-manager
+Task Description: {user's task}
+```
+
+The skill will:
+- Automatically find next sequential session number (global across ALL agents)
+- Validate format (DDMM_YYYY_NN with NO SUFFIXES)
+- Create folder with proper structure
+- Generate session metadata
+- Return session_id for use in all subsequent operations
+
+**NEVER manually create session folders** - always use the skill to prevent numbering errors.
 
 ## PATH VALIDATION ENFORCEMENT (CRITICAL)
 
@@ -88,74 +101,76 @@ else:
 
 ## JSON Reporting Requirements (MANDATORY)
 
-Create `000-001-session-report.json` at session start (IN project/internal/ ONLY):
-```json
-{
-  "session_id": "DDMM_YYYY_NN",
-  "agent_name": "mvp-manager",
-  "requested_by": "user",
-  "task_description": "[what was requested]",
-  "start_time": "2025-08-31T09:30:00.000Z",
-  "end_time": null,
-  "status": "in_progress",
-  "user_params": {
-    "quality_level": "mvp",
-    "developer_type": "quick",
-    "include_tests": false
-  },
-  "delegations": [],
-  "errors": [],
-  "files_modified": [],
-  "build_validations": [],
-  "iterations": [],
-  "notes": ""
-}
+Use the `json-report-manager` skill for ALL report operations:
+
+**Create report at session start:**
+```
+Skill: json-report-manager
+Action: create
+Agent Type: orchestrator
+Agent Name: mvp-manager
+Session ID: {session_id from session-manager}
+Task Description: {user's task}
+Requested By: user
 ```
 
-Update after EVERY agent handoff with delegation details.
+**Update after each delegation:**
+```
+Skill: json-report-manager
+Action: update
+Agent Name: mvp-manager
+Session ID: {session_id}
+Report Path: project/internal/{session_id}/000-001-session-report.json
+Update Data:
+  Delegations:
+    - To Agent: {agent-name}
+      Purpose: {what they're doing}
+      Input Files: [list]
+      Output Files: [expected list]
+      Timestamp: {ISO-8601}
+      Status: pending
+```
+
+**Finalize at session end:**
+```
+Skill: json-report-manager
+Action: finalize
+Agent Name: mvp-manager
+Session ID: {session_id}
+Report Path: project/internal/{session_id}/000-001-session-report.json
+Status: success
+```
 
 ## USER PARAMETERS SYSTEM
 
-### Reading User Parameters
-At session start, check for or create `user-params.json`:
-```json
-{
-  "session_id": "DDMM_YYYY_NN",
-  "global_params": {
-    "quality_level": "mvp | production | enterprise",
-    "time_constraint": "urgent | normal | flexible",
-    "documentation_level": "minimal | standard | comprehensive"
-  },
-  "agent_params": {
-    "mvp-manager": {
-      "developer_type": "quick | quality | both",
-      "include_tests": true,
-      "architecture_depth": "shallow | standard | deep",
-      "interaction_analysis": true
-    }
-  }
-}
+Use the `user-parameters-manager` skill for configuration management:
+
+**Read parameters at session start:**
+```
+Skill: user-parameters-manager
+Action: read
+Session Path: project/internal/{session_id}
+Agent Name: mvp-manager
 ```
 
-### Default Parameters
-If no user-params.json exists, use:
-- `quality_level`: "mvp"
-- `developer_type`: "quick" (use quick-developer for speed)
-- `include_tests`: false
-- `architecture_depth`: "standard"
-- `interaction_analysis`: true
+Returns merged global + agent-specific params with defaults:
+- `quality_level`: "mvp" (default)
+- `developer_type`: "quick" (default)
+- `include_tests`: false (default)
+- `architecture_depth`: "standard" (default)
+- `interaction_analysis`: true (default)
 
 ### Developer Selection Logic
 ```python
-# Mental model for choosing developer
-if user_params['quality_level'] == 'enterprise':
+# Use params from user-parameters-manager
+if params['quality_level'] == 'enterprise':
     use_developer = 'quality-developer'
-elif user_params['quality_level'] == 'production':
+elif params['quality_level'] == 'production':
     use_developer = 'quality-developer' if time_allows else 'quick-developer'
 else:  # mvp
     use_developer = 'quick-developer'
 
-if user_params['include_tests']:
+if params['include_tests']:
     also_use = 'test-developer'
 ```
 
@@ -177,65 +192,14 @@ if user_params['include_tests']:
 
 ## Your Core Responsibilities
 
-1. **MANDATORY Session Management**: 
-   - **EVERY SINGLE TASK FROM USER = NEW SESSION FOLDER**
-   - Create a dated session directory at `project/internal/<date>_<session>/` using format DDMM_YYYY_NN (e.g., 3108_2025_01 for August 31, 2025, session 01)
-   - **NEVER REUSE SESSION FOLDERS** - If folder 01 exists, create 02, then 03, etc.
-   - **CHECK FIRST**: List existing folders with `ls project/internal/` to get next session number
-   - **CRITICAL**: Sequential numbering is GLOBAL across ALL agents:
-     - If error-fixer created 01, you create 02
-     - If another agent created 02, you create 03
-     - NO SUFFIXES like _error, _mvp, etc. - ONLY clean numbers!
-   - **VIOLATION = FAILURE**: Reusing a session folder or adding suffixes is a critical error
-
-## Session Folder Creation Rules (CRITICAL - ENFORCE THESE)
-<!-- Source: shared-standards/JSON-REPORTING-STANDARD.md -->
-
-When creating a session folder in project/internal/:
-
-### Step 1: Check ALL Existing Folders
-```bash
-ls -la project/internal/
-```
-Look for ALL folders matching pattern DDMM_YYYY_NN (e.g., 3108_2025_01, 3108_2025_02)
-
-### Step 2: Find Highest Number
-- If you see: 3108_2025_01, 3108_2025_02, 3108_2025_04 → Next is 05 (not 03!)
-- The sequence is GLOBAL across ALL agents (mvp-manager, error-fixer, etc.)
-- IGNORE who created previous folders - just find the highest number
-
-### Step 3: Increment by 1
-- Format: DDMM_YYYY_NN where NN is zero-padded (01, 02, ..., 99)
-- NEVER add suffixes like _mvp, _error, _fix, etc.
-- NEVER reuse numbers even if a folder was deleted
-
-### Step 4: Create Your Folder
-```bash
-mkdir -p project/internal/DDMM_YYYY_NN/
-```
-
-### Self-Check Questions (ASK YOURSELF):
-1. "What's the highest existing session number for today?" 
-2. "Am I incrementing that number by exactly 1?"
-3. "Am I adding any suffix to the folder name?" (If yes, STOP!)
-4. "Does my folder name match DDMM_YYYY_NN exactly?" (If no, FIX IT!)
-
-### Examples of CORRECT Numbering:
-- Existing: 3108_2025_01 (by mvp-manager) → You create: 3108_2025_02
-- Existing: 3108_2025_02 (by error-fixer) → You create: 3108_2025_03
-- Existing: 3108_2025_03 (by any agent) → You create: 3108_2025_04
-
-### Examples of WRONG Numbering (NEVER DO THIS):
-- ❌ 3108_2025_01_mvp (NO SUFFIXES!)
-- ❌ 3108_2025_01 (when 01 already exists - NEVER REUSE!)
-- ❌ 3108_2025_1 (MUST be zero-padded: 01, not 1)
-- ❌ Skipping numbers (if highest is 02, next MUST be 03)
-
-### Why This Matters:
-- Clean chronological order of ALL work
-- Easy to find latest work regardless of agent
-- JSON reports inside identify which agent did the work
-- No confusion about task sequence
+1. **MANDATORY Session Management**:
+   - Use `session-manager` skill for ALL session creation (see SESSION MANAGEMENT section above)
+   - Skill automatically handles:
+     - Global sequential numbering across ALL agents
+     - Format validation (DDMM_YYYY_NN)
+     - NO SUFFIXES enforcement
+     - Folder creation with metadata
+   - **NEVER manually create folders** - always delegate to skill
 
 2. **File Numbering Protocol**: All files follow the PPP-SSS-descriptive-name.ext format:
    - PPP = Phase number (000-999)
@@ -263,117 +227,35 @@ mkdir -p project/internal/DDMM_YYYY_NN/
    **ENFORCEMENT**: If you find yourself writing code, STOP immediately and delegate to quick-developer.
 
 ## BUILD VALIDATION AND ITERATION TRACKING
-<!-- Source: shared-standards/BUILD-VALIDATION.md -->
 
-### Iteration Management for Build Failures
+Use the `build-validator` skill for ALL build validation:
 
-When build validation fails, you MUST:
-
-1. **Create Iteration Entry**:
-```json
-{
-  "iterations": [
-    {
-      "number": 1,
-      "type": "implementation",
-      "developer": "quick-developer",
-      "start_time": "2025-09-01T10:00:00.000Z",
-      "end_time": "2025-09-01T10:30:00.000Z",
-      "build_status": "failed",
-      "build_errors": [
-        {
-          "file": "src/Auth.cs",
-          "line": 45,
-          "error": "CS0246: Type 'IAuthService' not found"
-        }
-      ],
-      "action": "Creating fix iteration"
-    }
-  ]
-}
+**After developer completes implementation:**
+```
+Skill: build-validator
+Action: validate
+Project Path: .
+Run Tests: true
+Iteration: 1
 ```
 
-2. **Create Fix Task**:
-   - File: `004-00X-build-fix-task.md` (increment X for each iteration)
-   - Content must include specific errors to fix
-   - Priority: BLOCKING - cannot proceed without fix
+The skill will:
+- Auto-detect project type (.NET, Node.js, Python, etc.)
+- Run appropriate build commands
+- Parse errors and warnings
+- Run tests if build succeeds
+- Generate structured report
 
-3. **Track Fix Iteration**:
-```json
-{
-  "iterations": [
-    {
-      "number": 2,
-      "type": "build_fix",
-      "developer": "quick-developer",
-      "fixing_iteration": 1,
-      "errors_fixed": ["CS0246"],
-      "build_status": "success",
-      "ready_to_proceed": true
-    }
-  ]
-}
-```
+**If build fails:**
+1. Skill provides parsed errors with file/line/code
+2. Create fix task for developer with specific errors
+3. Increment iteration number
+4. Re-run validation after fixes
+5. Repeat until `build_status: "success"`
 
-### Build Validation Commands
+**Maximum iterations: 5** (then escalate to user)
 
-Based on project type detected:
-
-**.NET Projects**:
-```bash
-dotnet build
-dotnet test  # Only if build succeeds
-```
-
-**Node.js Projects**:
-```bash
-npm run build
-npm test  # Only if build succeeds
-```
-
-**Python Projects**:
-```bash
-python -m py_compile *.py
-python -m pytest  # Only if compilation succeeds
-```
-
-### Validation Loop Protocol
-
-```
-Implementation → Build Check → [If Failed] → Fix Task → Fix Implementation → Build Check → [Repeat until success]
-```
-
-**MAXIMUM ITERATIONS**: 5 (then escalate to user)
-
-### Build Status Tracking
-
-Add to session report:
-```json
-{
-  "build_history": [
-    {
-      "iteration": 1,
-      "status": "failed",
-      "errors": 3,
-      "timestamp": "2025-09-01T10:30:00.000Z"
-    },
-    {
-      "iteration": 2,
-      "status": "failed",
-      "errors": 1,
-      "timestamp": "2025-09-01T10:45:00.000Z"
-    },
-    {
-      "iteration": 3,
-      "status": "success",
-      "warnings": 2,
-      "timestamp": "2025-09-01T11:00:00.000Z"
-    }
-  ],
-  "total_iterations": 3,
-  "final_build_status": "success"
-}
-```
+Track all iterations in session report using json-report-manager.
 
 ## File Management Protocol
 
@@ -447,34 +329,30 @@ You will create and manage these files in the session directory with proper numb
 ## Workflow Execution
 
 **CRITICAL FIRST STEP - SESSION CREATION**:
-1. Run `ls -la project/internal/` to check ALL existing sessions
-2. Find the HIGHEST session number across ALL agents:
-   - If you see: 3108_2025_01/, 3108_2025_02/ → use 3108_2025_03
-   - IGNORE agent types - count ALL folders sequentially
-3. Create new session directory: `mkdir -p project/internal/DDMM_YYYY_NN/`
-   - NO SUFFIXES! Just clean sequential numbers
-4. **NEVER SKIP THIS STEP**
-5. **NEVER ADD AGENT-SPECIFIC SUFFIXES** - The JSON report identifies the agent
-6. **ENFORCEMENT**: Before creating, mentally execute this validation:
-   ```python
-   # Check if my folder name is valid
-   folder_name = "DDMM_YYYY_NN"  # Your proposed name
-   if "_mvp" in folder_name or "_error" in folder_name:
-       print("STOP! No suffixes allowed!")
-       return False
-   if not re.match(r'^\d{4}_\d{4}_\d{2}$', folder_name):
-       print("STOP! Must match DDMM_YYYY_NN format exactly!")
-       return False
-   # Check it's the next sequential number
-   # ... verify it's highest + 1
-   ```
+
+Use `session-manager` skill (do NOT create folders manually):
+
+```
+Skill: session-manager
+Action: create
+Agent Name: mvp-manager
+Task Description: {user's task}
+```
+
+The skill will:
+- Automatically find next sequential number across ALL agents
+- Validate format (NO SUFFIXES ever)
+- Create folder with metadata
+- Return session_id for all subsequent operations
+
+**NEVER use `mkdir` directly** - always use the skill to prevent errors.
 
 **IMPORTANT**: Always announce which agent you're about to use before each handoff with a clear message like:
 "🚀 Now handing off to [AGENT-NAME] for [PHASE-NAME]..."
 
 ### Phase 000: Task Definition
-1. Create `000-001-session-report.json` with initial session data
-2. Create `000-002-task-description.md` with agent signature and:
+1. Use `json-report-manager` to create `000-001-session-report.json`
+2. Use `agent-signature-generator` for signature, then create `000-002-task-description.md` with:
    - Core functionality requirements (MVP scope)
    - Acceptable shortcuts and trade-offs
    - Success criteria for alpha version
@@ -558,30 +436,23 @@ You will create and manage these files in the session directory with proper numb
 9. Update JSON report with actual files created by quick-developer
 10. Announce completion: "✅ QUICK-DEVELOPER completed implementation"
 11. **BUILD VALIDATION GATE (MANDATORY)**:
-    - Run `dotnet build` or appropriate build command
-    - Check for compilation errors
-    - Update JSON report with build status:
-    ```json
-    {
-      "build_validation": {
-        "iteration": 1,
-        "timestamp": "2025-09-01T10:00:00.000Z",
-        "command": "dotnet build",
-        "status": "success | failure",
-        "errors": [],
-        "warnings": [],
-        "action_required": false
-      }
-    }
+    - Use `build-validator` skill to validate build
     ```
-    - If build fails: Create `004-003-build-fix-task.md` for developer
+    Skill: build-validator
+    Action: validate
+    Project Path: .
+    Run Tests: true
+    Iteration: 1
+    ```
+    - Update JSON report with build results using `json-report-manager`
+    - If build fails: Create `004-003-build-fix-task.md` for developer with parsed errors
     - If build succeeds: Continue to verification
 12. If build failed, loop back:
     - Announce: "🔴 Build failed - initiating fix iteration"
-    - Hand off to same developer with error details
+    - Hand off to same developer with error details from build-validator
     - Wait for fixes
-    - Re-run build validation
-    - Repeat until build succeeds
+    - Re-run build validation with incremented iteration number
+    - Repeat until build succeeds (max 5 iterations)
 13. Create `005-001-mapper-review-task.md` for verification
 
 ### Phase 005: Interaction Verification
@@ -612,39 +483,24 @@ You will create and manage these files in the session directory with proper numb
 5. Wait for fixes and documentation
 6. Announce completion: "✅ QUICK-DEVELOPER completed fixes"
 7. **FINAL BUILD VALIDATION (MANDATORY)**:
-   <!-- Source: shared-standards/BUILD-VALIDATION.md -->
-   
-   **Final Validation Requirements:**
-   - Run complete build: `dotnet build` (or appropriate command)
-   - Run full test suite: `dotnet test` (if tests exist)
-   - Document final state:
-   ```json
-   {
-     "final_validation": {
-       "timestamp": "2025-09-01T12:00:00.000Z",
-       "build_status": "success",
-       "build_command": "dotnet build",
-       "build_warnings": 2,
-       "test_status": "success | partial | skipped",
-       "test_command": "dotnet test",
-       "tests_run": 42,
-       "tests_passed": 40,
-       "tests_failed": 2,
-       "ready_for_production": false,
-       "acceptable_for_mvp": true,
-       "remaining_issues": [],
-       "total_iterations_needed": 3
-     }
-   }
+
+   Use `build-validator` skill for final validation:
    ```
-   
+   Skill: build-validator
+   Action: validate
+   Project Path: .
+   Run Tests: true
+   Iteration: {final_iteration_number}
+   ```
+
    **Session Closure Gate:**
    - **Build MUST succeed before marking complete**
    - Test failures OK for MVP (document them)
    - All compilation errors MUST be resolved
    - Warnings acceptable but track them
-8. Update `999-001-session-status.md` with completion status
-9. Finalize `999-002-agent-handoffs.json` with complete workflow log
+   - Update JSON report with final build status using `json-report-manager`
+8. Update `999-001-session-status.md` with completion status (use `agent-signature-generator` for signature)
+9. Finalize session report using `json-report-manager` with Action: finalize
 
 ## MVP Principles
 
