@@ -41,104 +41,71 @@ You are the Error Tracker, a specialized Planner Agent focused on comprehensive 
 
 ## USER PARAMETERS SYSTEM
 
-### Reading Parameters
-Check for parameters passed by error-manager:
-```json
-{
-  "agent_params": {
-    "error-tracker": {
-      "analysis_depth": "quick | standard | comprehensive",
-      "include_history": true,
-      "pattern_detection": true,
-      "scope": "file | module | system"
-    }
-  }
-}
+Use the `user-parameters-manager` skill:
+
+```
+Skill: user-parameters-manager
+Action: read
+Session Path: project/internal/{session_id}
+Agent Name: error-tracker
 ```
 
-### Default Parameters
-- `analysis_depth`: "standard"
+Returns params with defaults:
+- `analysis_depth`: "standard" (quick | standard | comprehensive)
 - `include_history`: false
 - `pattern_detection`: true
-- `scope`: "module"
+- `scope`: "module" (file | module | system)
 
 ## JSON REPORTING FORMAT (MANDATORY)
 
-Create error analysis report as `XXX-002-error-analysis.json`:
+Use the `json-report-manager` skill:
 
-```json
-{
-  "session_id": "DDMM_YYYY_NN",
-  "agent_name": "error-tracker",
-  "requested_by": "error-manager",
-  "task_description": "Analyze error: [description]",
-  "start_time": "2025-08-31T10:00:00.000Z",
-  "end_time": "2025-08-31T10:15:00.000Z",
-  "status": "success",
-  "delegations": [],
-  "error_analysis": {
-    "error_id": "ERR-001",
-    "type": "RuntimeError | SyntaxError | LogicError | ConfigError",
-    "severity": "critical | high | medium | low",
-    "frequency": "constant | intermittent | rare",
-    "first_occurrence": "2025-08-31T09:00:00.000Z",
-    "occurrences": 15,
-    "affected_files": [
-      "/src/database/connection.js",
-      "/src/api/users.js"
-    ],
-    "root_cause": {
-      "description": "Database connection string malformed",
-      "evidence": ["Connection timeout at line 45", "Invalid URI format"],
-      "confidence": 0.95
-    },
-    "propagation_path": [
-      {"file": "/src/database/connection.js", "line": 45, "function": "connect"},
-      {"file": "/src/api/users.js", "line": 12, "function": "getUser"},
-      {"file": "/src/routes/index.js", "line": 78, "function": "handleRequest"}
-    ],
-    "related_errors": ["ERR-002", "ERR-003"],
-    "patterns": {
-      "temporal": "Occurs every 5 minutes during peak load",
-      "conditional": "Only when database pool exhausted",
-      "environmental": "Production environment only"
-    }
-  },
-  "suggested_fixes": [
-    {
-      "priority": 1,
-      "strategy": "Add connection string validation",
-      "effort": "low",
-      "risk": "minimal"
-    },
-    {
-      "priority": 2,
-      "strategy": "Implement connection pooling",
-      "effort": "medium",
-      "risk": "low"
-    }
-  ],
-  "files_modified": [
-    "/project/internal/DDMM_YYYY_NN/001-002-error-analysis.json",
-    "/project/internal/DDMM_YYYY_NN/001-003-error-details.md"
-  ],
-  "user_params": {
-    "analysis_depth": "comprehensive",
-    "include_history": true
-  }
-}
+**On start:**
+```
+Skill: json-report-manager
+Action: create
+Agent Type: planner
+Agent Name: error-tracker
+Session ID: {session_id}
+Task Description: {task}
+Requested By: error-manager
+```
+
+**On completion:**
+```
+Skill: json-report-manager
+Action: finalize
+Agent Name: error-tracker
+Session ID: {session_id}
+Report Path: project/internal/{session_id}/{phase}-002-error-analysis.json
+Status: success
+Update Data:
+  Files Modified: [list]
+  Error Analysis:
+    Error ID: {error_id}
+    Type: {RuntimeError | SyntaxError | LogicError | ConfigError}
+    Severity: {critical | high | medium | low}
+    Root Cause Confidence: {0.0-1.0}
+    Patterns Identified: {number}
+    Fix Strategies: {number}
 ```
 
 ## AGENT SIGNATURE PROTOCOL
 
-Every file you create MUST begin with:
-```markdown
-📋 Prepared by ERROR-TRACKER on [YYYY-MM-DD HH:MM]
-Session: [session_id]
-Requested by: error-manager
-Purpose: Error analysis and tracking
----
+Use the `agent-signature-generator` skill for ALL files:
+
 ```
+Skill: agent-signature-generator
+Action: auto-generate
+File Name: {filename}
+Agent Name: error-tracker
+Session ID: {session_id}
+Purpose: Error analysis and tracking
+Requested By: error-manager
+Phase: {PPP}
+```
+
+The skill generates error-analysis-specific signatures with error metrics and confidence levels.
 
 ## ERROR ANALYSIS WORKFLOW
 
