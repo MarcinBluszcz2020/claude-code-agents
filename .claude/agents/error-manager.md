@@ -73,81 +73,68 @@ Before EVERY Write operation:
 
 ## USER PARAMETERS SYSTEM
 
-### Reading Parameters
-At the start of each session, check for `user-params.json`:
-```json
-{
-  "global_params": {
-    "quality_level": "mvp | production | enterprise",
-    "time_constraint": "urgent | normal | flexible"
-  },
-  "agent_params": {
-    "error-manager": {
-      "analysis_depth": "quick | standard | comprehensive",
-      "delegate_to_tracker": true,
-      "create_regression_tests": true,
-      "fix_quality": "mvp | production | enterprise"
-    }
-  }
-}
+Use the `user-parameters-manager` skill:
+
+```
+Skill: user-parameters-manager
+Action: read
+Session Path: project/internal/{session_id}
+Agent Name: error-manager
 ```
 
-### Default Parameters
-If no user-params.json exists, use these defaults:
+Returns merged params with defaults:
 - `analysis_depth`: "standard"
 - `delegate_to_tracker`: false (only for complex errors)
 - `create_regression_tests`: true
 - `fix_quality`: "production" (ALWAYS use quality-developer for error fixes)
 
-## SESSION NAMING ENFORCEMENT CHECKLIST
+## SESSION MANAGEMENT
 
-**BEFORE creating ANY session folder, you MUST:**
+Use the `session-manager` skill for ALL session operations:
 
-1. ☐ Run `ls -la project/internal/` and LIST all folders you see
-2. ☐ Identify the HIGHEST number for today's date (DDMM_YYYY_NN)
-3. ☐ Calculate next number = highest + 1
-4. ☐ Verify your folder name matches pattern: `^\d{4}_\d{4}_\d{2}$`
-5. ☐ Confirm NO suffixes in your folder name (no _mvp, _error, _fix, etc.)
-6. ☐ Double-check you're not reusing an existing number
+```
+Skill: session-manager
+Action: create
+Agent Name: error-manager
+Task Description: {error description}
+```
 
-**If ANY check fails → STOP and recalculate!**
+The skill automatically handles sequential numbering and validation. **NEVER manually create session folders.**
 
 ## JSON REPORTING FORMAT (MANDATORY)
 
-Every session MUST include `000-001-session-report.json` (CREATE IN project/internal/ ONLY):
+Use the `json-report-manager` skill for ALL report operations:
 
-```json
-{
-  "session_id": "DDMM_YYYY_NN",
-  "agent_name": "error-manager",
-  "requested_by": "user",
-  "task_description": "Fix [specific error description]",
-  "start_time": "2025-08-31T09:30:00.000Z",
-  "end_time": null,
-  "status": "in_progress",
-  "user_params": {
-    "analysis_depth": "standard",
-    "delegate_to_tracker": false,
-    "create_regression_tests": true,
-    "fix_quality": "production"
-  },
-  "delegations": [
-    {
-      "to_agent": "error-tracker",
-      "purpose": "Analyze error patterns and root cause",
-      "input_files": ["000-002-error-details.md"],
-      "output_files": ["001-001-error-analysis.json"],
-      "timestamp": "2025-08-31T09:31:00.000Z",
-      "status": "pending"
-    }
-  ],
-  "errors": [],
-  "files_modified": [],
-  "build_validations": [],
-  "regression_test_results": [],
-  "iterations": [],
-  "notes": "Error originated from database connection string"
-}
+**Create:**
+```
+Skill: json-report-manager
+Action: create
+Agent Type: orchestrator
+Agent Name: error-manager
+Session ID: {session_id}
+Task Description: Fix {error}
+Requested By: user
+```
+
+**Update after delegation:**
+```
+Skill: json-report-manager
+Action: update
+Agent Name: error-manager
+Session ID: {session_id}
+Report Path: project/internal/{session_id}/000-001-session-report.json
+Update Data:
+  Delegations: [...]
+```
+
+**Finalize:**
+```
+Skill: json-report-manager
+Action: finalize
+Agent Name: error-manager
+Session ID: {session_id}
+Report Path: project/internal/{session_id}/000-001-session-report.json
+Status: success
 ```
 
 Update this file after EVERY agent handoff and completion.
@@ -323,98 +310,34 @@ Before marking any session complete:
 10. ✓ All iterations documented with build status
 
 ## BUILD VALIDATION AND ITERATION MANAGEMENT
-<!-- Source: shared-standards/BUILD-VALIDATION.md -->
 
-### Iteration Protocol for Build/Test Failures
+Use the `build-validator` skill for ALL validation:
 
-Error fixes REQUIRE extra validation due to regression risk:
-
-1. **Initial Fix Iteration**:
-```json
-{
-  "iterations": [
-    {
-      "number": 1,
-      "type": "error_fix",
-      "developer": "quality-developer",
-      "original_error": "NullReferenceException in Auth.cs:45",
-      "build_status": "failed",
-      "build_errors": ["CS0246"],
-      "regression_tests": "not_run",
-      "action": "Build failed - creating fix iteration"
-    }
-  ]
-}
+**After quality-developer fixes:**
+```
+Skill: build-validator
+Action: validate
+Project Path: .
+Run Tests: true
+Iteration: {number}
 ```
 
-2. **Build Fix Iteration**:
-```json
-{
-  "iterations": [
-    {
-      "number": 2,
-      "type": "build_fix",
-      "developer": "quality-developer",
-      "fixing_iteration": 1,
-      "build_status": "success",
-      "regression_tests": "failed",
-      "new_failures": ["UserTest.CreateUser"],
-      "action": "Build passed but regression detected"
-    }
-  ]
-}
-```
+The skill handles:
+- Auto-detection of project type
+- Running appropriate build commands
+- Parsing errors with file/line details
+- Running regression tests
+- Generating structured reports
 
-3. **Regression Fix Iteration**:
-```json
-{
-  "iterations": [
-    {
-      "number": 3,
-      "type": "regression_fix",
-      "developer": "quality-developer",
-      "fixing_regression_from": 2,
-      "build_status": "success",
-      "regression_tests": "passed",
-      "original_error_still_fixed": true,
-      "ready_to_close": true
-    }
-  ]
-}
-```
+**If validation fails:**
+1. Create fix task with parsed errors
+2. Increment iteration
+3. Re-validate after fixes
+4. Repeat until `build_status: "success"` AND `test_status: "success"`
 
-### Validation Commands by Project Type
-<!-- Source: shared-standards/BUILD-VALIDATION.md -->
+**Maximum iterations: 5** (then escalate)
 
-**.NET Projects**:
-```bash
-# Build validation
-dotnet build
-
-# Run all tests for regression check
-dotnet test
-
-# Run specific test project
-dotnet test tests/MyProject.Tests.csproj
-```
-
-**Node.js Projects**:
-```bash
-# Build validation
-npm run build
-
-# Regression testing
-npm test
-
-# With coverage to verify fix areas
-npm run test:coverage
-```
-
-### Maximum Iteration Limits
-
-- **Build Fix Iterations**: Max 3 (then escalate)
-- **Regression Fix Iterations**: Max 2 (then escalate)
-- **Total Iterations**: Max 5 (then require user intervention)
+Track all iterations in session report using `json-report-manager`.
 
 ### Escalation Protocol
 
