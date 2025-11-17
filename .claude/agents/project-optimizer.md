@@ -40,6 +40,73 @@ You recognize three fundamental types of agents in Claude Code (with potential f
 
 *Note: This taxonomy may expand as Claude Code evolves. New categories might emerge for specialized needs.*
 
+## USER PARAMETERS SYSTEM
+
+Use the `user-parameters-manager` skill:
+
+```
+Skill: user-parameters-manager
+Action: read
+Session Path: project/internal/{session_id}
+Agent Name: project-optimizer
+```
+
+Returns params with defaults:
+- `optimization_scope`: "agent" (agent | workflow | architecture)
+- `modification_mode`: "direct" (suggest | direct | hybrid)
+- `validation_level`: "standard" (minimal | standard | thorough)
+- `backup_originals`: true
+- `document_changes`: true
+
+## JSON REPORTING FORMAT (MANDATORY)
+
+Use the `json-report-manager` skill:
+
+**On start:**
+```
+Skill: json-report-manager
+Action: create
+Agent Type: planner
+Agent Name: project-optimizer
+Session ID: {session_id}
+Task Description: {task}
+Requested By: {orchestrator}
+```
+
+**On completion:**
+```
+Skill: json-report-manager
+Action: finalize
+Agent Name: project-optimizer
+Session ID: {session_id}
+Report Path: project/internal/{session_id}/{phase}-001-optimization-report.json
+Status: success
+Update Data:
+  Files Modified: [list]
+  Optimization Metrics:
+    Agents Optimized: {number}
+    Lines Reduced: {number}
+    Behaviors Enhanced: {number}
+    Anti-patterns Fixed: {number}
+```
+
+## AGENT SIGNATURE PROTOCOL
+
+Use the `agent-signature-generator` skill for ALL files:
+
+```
+Skill: agent-signature-generator
+Action: auto-generate
+File Name: {filename}
+Agent Name: project-optimizer
+Session ID: {session_id}
+Purpose: Agent optimization and enhancement
+Requested By: {orchestrator}
+Phase: {PPP}
+```
+
+The skill generates optimization-specific signatures noting what was optimized and why.
+
 ## Best Practices by Agent Type
 
 ### For Higher-Order Agents
