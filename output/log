@@ -1,0 +1,145 @@
+====================================================================
+LOG PRZETWARZANIA PIERWSZEGO ADRESU Z BATCH_001.CSV
+====================================================================
+Data: 2025-11-15
+Batch: batch_001.csv
+Adres: wkbw.com (pierwszy adres z batcha)
+
+====================================================================
+KROK 1: Zapoznanie się ze specyfikacją (spec.md)
+====================================================================
+
+Odczytano specyfikację z pliku spec.md:
+
+Wymagania dla przetwarzania pojedynczego adresu:
+1. Wejść na adres strony internetowej
+2. Poszukać informacji kontaktowych (mogą być w stopce lub na osobnej stronie kontaktowej)
+3. NIE szukać informacji o rekrutacjach, ofertach pracy
+4. Zwrócić adres/adresy email kontaktów
+5. Jeżeli email nie jest jawnie podany, ale jest formularz kontaktowy -
+   spróbować wydobyć email z HTML lub JavaScript
+
+Status: ✓ Specyfikacja przeczytana i zrozumiana
+
+====================================================================
+KROK 2: Odczyt batch_001.csv
+====================================================================
+
+Ścieżka pliku: /mnt/d/claude/adresses/batch_001.csv
+
+Zawartość (pierwsze 5 adresów):
+1. wkbw.com         <-- PRZETWARZANY ADRES
+2. myccmortgage.com
+3. binarydefense.com
+4. customfit.me
+5. davey.com
+
+Status: ✓ Plik odczytany, wybrany pierwszy adres: wkbw.com
+
+====================================================================
+KROK 3: Pierwsza próba - Strona główna (https://wkbw.com)
+====================================================================
+
+Wykonano: WebFetch na https://wkbw.com
+Cel: Przeszukanie strony głównej w poszukiwaniu:
+  - Adresów email w treści
+  - Adresów email w stopce
+  - Linków do strony kontaktowej
+  - Adresów email w kodzie HTML, JavaScript, JSON
+  - Zaciemnionych lub zakodowanych adresów email
+
+WYNIKI PRZESZUKANIA STRONY GŁÓWNEJ:
+------------------------------------
+
+Znaleziono 3 adresy email ukryte w kodzie JavaScript:
+
+1. DL-Corp-Digital-Support@scripps.com
+   - Lokalizacja: window.ddls["email-address"] (JavaScript data layer)
+   - Kontekst: Wsparcie cyfrowe korporacyjne
+   - Typ: BIZNESOWY (potencjalny kontakt do współpracy)
+
+2. julie.oconnor@wkbw.com
+   - Lokalizacja: window.ddls["eeo_hr_contact"] (konfiguracja HR w JavaScript)
+   - Kontekst: Julie O'Connor, Dział HR
+   - Telefon: +1 (716) 840-7724
+   - Typ: HR/REKRUTACJA (WYKLUCZONY zgodnie ze specyfikacją)
+
+3. captioning.complaint@wkbw.com
+   - Lokalizacja: window.ddls["cc-email"] (konfiguracja closed captioning)
+   - Kontekst: Skargi dotyczące napisów/dostępności
+   - Typ: TECHNICZNY/COMPLIANCE (nie biznesowy)
+
+Dodatkowe informacje znalezione:
+- Telefon CC: 716-840-7873
+- Fax CC: 716-840-7820
+- Adres korespondencyjny: Eric Wotila, 7 Broadcast Plaza, Buffalo, NY 14202
+- Telefon dostępności: 1-833-418-1465
+
+Status: ✓ Strona główna przeszukana
+
+====================================================================
+KROK 4: Druga próba - Strona kontaktowa (https://wkbw.com/contact)
+====================================================================
+
+Wykonano: WebFetch na https://wkbw.com/contact
+Cel: Sprawdzenie czy strona kontaktowa zawiera dodatkowe adresy email
+      biznesowe (np. sprzedaż, reklama, współpraca biznesowa)
+
+WYNIKI PRZESZUKANIA STRONY KONTAKTOWEJ:
+----------------------------------------
+
+Znaleziono te same 3 adresy email co na stronie głównej:
+1. DL-Corp-Digital-Support@scripps.com
+2. julie.oconnor@wkbw.com (HR - wykluczony)
+3. captioning.complaint@wkbw.com
+
+Brak dodatkowych adresów email dla:
+- Sprzedaży/Sales
+- Reklamy/Advertising
+- Ogólnych zapytań biznesowych
+- Współpracy partnerskiej
+
+Status: ✓ Strona kontaktowa przeszukana
+
+====================================================================
+KROK 5: Analiza i filtrowanie wyników
+====================================================================
+
+WSZYSTKIE ZNALEZIONE ADRESY EMAIL:
+1. DL-Corp-Digital-Support@scripps.com
+2. julie.oconnor@wkbw.com
+3. captioning.complaint@wkbw.com
+
+FILTROWANIE WEDŁUG SPECYFIKACJI:
+- julie.oconnor@wkbw.com - WYKLUCZONY (HR/rekrutacja)
+- captioning.complaint@wkbw.com - WYKLUCZONY (techniczny, nie biznesowy)
+- DL-Corp-Digital-Support@scripps.com - ZAAKCEPTOWANY (wsparcie korporacyjne)
+
+KOŃCOWY WYNIK:
+Adresy email nadające się do kontaktu biznesowego:
+✓ DL-Corp-Digital-Support@scripps.com
+
+====================================================================
+KROK 6: Podsumowanie
+====================================================================
+
+Przetworzony adres: wkbw.com
+Liczba znalezionych adresów email (wszystkich): 3
+Liczba adresów po filtracji (biznesowych): 1
+
+Wynik końcowy: DL-Corp-Digital-Support@scripps.com
+
+Metoda znalezienia: Ekstrakcja z kodu JavaScript (window.ddls)
+Jakość wyniku: Średnia (adres korporacyjny Scripps, nie bezpośredni WKBW)
+
+UWAGI:
+- WKBW.com to stacja telewizyjna należąca do Scripps
+- Główny kontakt biznesowy prowadzi do wsparcia cyfrowego Scripps
+- Brak bezpośredniego adresu dla WKBW do zapytań biznesowych
+- Strona wykorzystuje formularze kontaktowe zamiast jawnych adresów
+
+Status: ✓ Przetwarzanie zakończone pomyślnie
+
+====================================================================
+KONIEC LOGU
+====================================================================

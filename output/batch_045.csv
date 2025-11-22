@@ -1,0 +1,23 @@
+company,email,email_type,score,source,confidence,notes
+lynparzahcp.com,,,,,403 Forbidden - access denied
+shrooly.com,,,,,No emails found - support portal only
+wilmu.edu,,,,,No emails found - phone only (877-967-5464)
+lilt.com,,,,,No emails found - demo booking only
+fox16.com,,,,,403 Forbidden - access denied
+arktimes.com,,,,,No emails found - contact form only
+naturalinsight.com,,,,,ECONNRESET - connection error
+uapb.edu,communications@uapb.edu,communications,5,navigation menu,medium,University communications office - story submissions
+uhcprovider.com,,,,,No emails found - provider portal
+nwahomepage.com,,,,,403 Forbidden - access denied
+tigercommissary.com,,,,,503 Service Unavailable - server error
+1099online.com,support@1099online.com,support,5,header/footer,high,Customer support email
+1099online.com,info@1099online.com,info,7,footer,high,General contact email
+1099online.com,sales@1099online.com,sales,9,footer,high,Sales contact - high business value
+jbu.edu,,,,,ECONNREFUSED - connection error
+murphyusa.com,,,,,403 Forbidden - access denied
+lighthousecu.org,info@send.lighthousecu.org,info,7,WordPress code,low,Credit union automated email sender
+scribesoft.com,,,,,SSL certificate expired - unable to access
+planetfitness.com,,,,,403 Forbidden - access denied
+allegromicro.com,,,,,No emails found - contact sales form only
+justtires.com,,,,,No emails found - phone only (866-582-1579)
+upstartcommerce.com,,,,,No emails found - ecommerce platform

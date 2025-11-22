@@ -1,0 +1,21 @@
+company,email,email_type,score,source,confidence,notes
+careporthealth.com,,,,,No emails found - contact form only
+hillspet.ca,,,,,No emails found - product website with contact forms
+ksnt.com,,,,,403 Forbidden - access denied
+kansascitysteaks.com,,,,,No emails found - phone contact only (800-624-3410)
+luckyorange.com,,,,,No emails found - contact form only
+intrustbank.com,,,,,No emails found - banking website with contact forms
+mccarthyolathehyundai.com,,,,,405 Method Not Allowed - access error
+regi.com,,,,,No emails found - main office phone only
+fglife.com,,,,,No emails found - contact forms only
+omaha.com,,,,,No emails found - news website with contact forms
+muscatinejournal.com,,,,,No emails found - contact form only
+agleader.com,,,,,No emails found - contact form only
+athene.com,,,,,ECONNRESET - connection error
+merck-animal-health-usa.com,,,,,No emails found - contact forms only
+kcci.com,,,,,451 error - access restricted
+perfectionlearning.com,,,,,No emails found - sales consultant contact forms only
+dupaco.com,,,,,No emails found - credit union with contact forms
+icann.org,,,,,403 Forbidden - access denied
+arcadia.com,press@arcadia.com,press,3,mailto link,medium,Press/media email - low business value
+hematology.org,,,,,No emails found - phone contact only (202-776-0544)

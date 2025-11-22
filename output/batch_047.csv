@@ -1,0 +1,21 @@
+company,email,email_type,score,source,confidence,notes
+abq.news,sales@abq.news,sales,9,Ask ABQ Experts section,high,Sales contact for local brand advertising - high value
+nmjc.edu,asknmjc@nmjc.edu,info,7,footer,high,College general inquiries contact
+asrt.org,customerservice@asrt.org,service,5,footer,high,Member services for radiologic technologists
+fetch.com,support@fetch.com,support,5,footer,high,Customer support email
+hobnob.io,,,,,Redirects to hobnob.app - Cloudflare protected email (encoded)
+indahclothing.com,,,,,No emails found - contact form only
+newt.net,,,,,No emails found - Japanese site with social media only
+thegardenisland.com,customerservice@thegardenisland.com,service,5,JavaScript config,high,Customer service email - news website
+hawaiipacifichealth.org,,,,,No emails found - phone only (808-643-4DOC)
+narfe.org,,,,,No emails found - phone only (703-838-7760)
+trip.com,,,,,Redirects to pl.trip.com - travel booking platform
+proservice.com,,,,,No emails found - Hawaii HR services
+ficoh.com,,,,,ETIMEDOUT - connection timeout
+alcorn.edu,info@alcorn.edu,info,7,footer,high,University general contact email
+southernmiss.com,,,,,No emails found - athletics website
+voxo.co,support@voxo.co,support,5,footer/JSON-LD,high,Customer support email - VoIP service
+skygolf.com,,,,,No emails found - e-commerce with forms
+tecinfo.net,,,,,403 Forbidden - access denied
+panolian.com,,,,,No emails found - news forms only
+oxfordsd.org,,,,,No emails found - phone only (662-234-3541)

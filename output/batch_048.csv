@@ -1,0 +1,22 @@
+company,email,email_type,score,source,confidence,notes
+forestry-suppliers.com,,,,,No emails found - e-commerce navigation only
+vicksburgpost.com,,,,,No emails found - contact form only
+northwestms.edu,,,,,No emails found - phone only (662-562-3200)
+brunswickbilliards.com,,,,,No emails found - phone only (800-336-8771)
+portlandlibrary.com,partin@portlib.org,other,3,press release,medium,Marketing Director email in press release - low business value
+mainehousing.org,,,,,No emails found - phone only (800-452-4668)
+seabags.com,chad@seabags.com,business,9,form config,high,Wholesale inquiries - high business value
+seabags.com,b2b@seabags.com,business,9,form config,high,B2B sponsorship requests - high business value
+husson.edu,admit@husson.edu,admissions,5,footer,high,University admissions contact
+greenpages.com,,,,,Redirects to bluemantis.com - no emails found
+une.edu,,,,,No emails found - contact form only
+everlane.com,support@everlane.com,support,5,JavaScript config,medium,Customer support email - e-commerce
+waysidepublishing.com,,,,,403 Forbidden - access denied
+nyseg.com,,,,,ETIMEDOUT - connection timeout
+zmarta.se,info@zmarta.se,info,7,footer,high,General company contact - Swedish financial service
+toponetrader.com,,,,,No emails found - Elementor website
+zonbase.com,support@zonbase.com,support,5,footer,high,Amazon seller tools support
+wy.edu,,,,,ECONNREFUSED - connection error
+undetectable.ai,,,,,Cloudflare protected email (encoded)
+yogabody.com,support@yogabody.com,support,5,JSON-LD schema,high,Yoga education platform support
+yellowstonenationalparklodges.com,,,,,No emails found - phone only (307-344-7311)

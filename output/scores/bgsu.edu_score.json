@@ -1,0 +1,149 @@
+{
+  "company_domain": "bgsu.edu",
+  "company_name": "Bowling Green State University (BGSU)",
+  "evaluated_at": "2025-11-15T12:30:00Z",
+  "evaluator": "company-scorer",
+
+  "overall_score": 48,
+  "recommendation": "MEDIUM_PRIORITY",
+
+  "score_breakdown": {
+    "financial_stability": {
+      "score": 20,
+      "max": 30,
+      "evidence": "Public state university (stable government funding). Tier-one research university with Carnegie Community Engagement classification. Multiple colleges and programs. However: Public sector = constrained budgets, bureaucratic procurement. Not profit-driven but stable institutional funding."
+    },
+    "cloud_need": {
+      "score": 16,
+      "max": 25,
+      "evidence": "Has Information Technology Services (ITS) department. Uses Microsoft Office/OneDrive cloud. Computer Science teaches cloud computing. However: No cloud engineer job postings found. Universities often have hybrid infrastructure (some cloud, some on-prem). Moderate cloud adoption, room for optimization/expansion."
+    },
+    "company_fit": {
+      "score": 10,
+      "max": 20,
+      "evidence": "University = complex procurement (RFP processes, vendor requirements). BUT: Often work with smaller specialized firms for niche projects. Education sector familiar with consultants. Mid-tier fit - doable but requires navigating bureaucracy. Not ideal for 3-person boutique."
+    },
+    "reputation": {
+      "score": 13,
+      "max": 15,
+      "evidence": "Established state university (tier-one rating). Carnegie classification for community engagement. Research programs addressing societal issues. No payment issues (government-backed). Good reputation in education sector. Trusted institution."
+    },
+    "accessibility": {
+      "score": 4,
+      "max": 10,
+      "evidence": "Public sector = formal RFP/procurement process required for most contracts. ITS department exists but reaching decision-makers difficult. Likely requires competitive bidding. Low accessibility for small consultancies without inside connections."
+    }
+  },
+
+  "company_profile": {
+    "industry": "Higher Education / Public University",
+    "employee_count": "~2,000-3,000 (estimated faculty + staff)",
+    "estimated_revenue": "~$200M-$400M annual budget (typical mid-sized state university)",
+    "funding_stage": "Public institution (state-funded)",
+    "total_funding": "N/A (government appropriations + tuition + grants)",
+    "founded_year": "Not specified in search",
+    "headquarters": "Bowling Green, Ohio",
+    "business_model": "Public education institution"
+  },
+
+  "cloud_maturity": {
+    "current_state": "Hybrid Cloud - Partial Adoption",
+    "aws_usage": "Unknown specific provider, likely multi-cloud (Microsoft Office 365/Azure detected)",
+    "migration_indicators": [
+      "ITS department provides tech support campus-wide",
+      "Uses cloud file storage (OneDrive)",
+      "Computer Science department teaches cloud computing (AWS, mobile)",
+      "Online learning platform (BGSU Online) suggests cloud infrastructure",
+      "However: No cloud-specific job postings",
+      "No public announcements about cloud migration",
+      "Universities typically have mixed environments (legacy + cloud)"
+    ],
+    "opportunity_type": "Research Computing Migration, Learning Platform Optimization, or Hybrid Infrastructure Consulting"
+  },
+
+  "contact_info": {
+    "primary_email": "Not publicly listed",
+    "sales_email": "N/A (university, not commercial)",
+    "general_email": "Via contact forms",
+    "phone": "Main switchboard available",
+    "linkedin_company": "https://linkedin.com/school/bowling-green-state-university/"
+  },
+
+  "red_flags": [
+    "⚠️ Public sector procurement = RFP processes, slow, bureaucratic",
+    "⚠️ Likely requires competitive bidding for contracts",
+    "⚠️ Budget constraints (public funding dependent on state legislature)",
+    "⚠️ No cloud-specific job openings (signals low IT priority or handled internally)",
+    "⚠️ Decision-making by committee (slow approval processes)",
+    "⚠️ May require insurance, bonding, certifications for vendors"
+  ],
+
+  "green_flags": [
+    "✓ Financially stable (government-backed)",
+    "✓ Pays bills reliably (public institution)",
+    "✓ Research university = values innovation",
+    "✓ Computer Science department = understands cloud value",
+    "✓ Multiple campuses/online programs = potential cloud use cases",
+    "✓ ITS department exists (clear IT function)",
+    "✓ Teaches cloud computing = may need consulting for practical implementation"
+  ],
+
+  "opportunities": [
+    {
+      "type": "Research Computing Cloud Migration",
+      "description": "Universities often need cloud infrastructure for research data processing, especially sciences. BGSU research programs (water quality, health) could benefit from AWS research credits + scalable compute.",
+      "confidence": "Medium",
+      "estimated_timeline": "6-12 months (slow procurement)",
+      "engagement_model": "Project-based, likely requires RFP response"
+    },
+    {
+      "type": "Learning Management System (LMS) Optimization",
+      "description": "BGSU Online and hybrid learning platforms may need cloud optimization, especially post-COVID shift to online education.",
+      "confidence": "Low-Medium",
+      "estimated_timeline": "12+ months",
+      "engagement_model": "Competitive bid required"
+    },
+    {
+      "type": "AWS Training/Workshop for CS Department",
+      "description": "CS department teaches cloud - could partner to provide hands-on AWS workshops or guest lectures. Low-revenue but good entry point + relationship building.",
+      "confidence": "Medium-High",
+      "estimated_timeline": "3-6 months",
+      "engagement_model": "Direct engagement possible, smaller contracts"
+    },
+    {
+      "type": "Grant-Funded Projects",
+      "description": "Universities get grants requiring cloud infrastructure. Could partner on grant proposals where cloud consulting is part of deliverables.",
+      "confidence": "Medium",
+      "estimated_timeline": "Variable (grant cycles)",
+      "engagement_model": "Partnership with faculty researchers"
+    }
+  ],
+
+  "competitor_analysis": {
+    "is_competitor": false,
+    "is_aws_partner": false,
+    "partner_tier": "N/A",
+    "notes": "Educational institution, zero competition risk. May have relationships with other IT vendors already."
+  },
+
+  "next_steps": [
+    "Research ITS leadership (CIO, Director of IT) on LinkedIn",
+    "Check if BGSU is AWS Educate member (signals existing AWS relationship)",
+    "Look for Computer Science faculty doing cloud research (partnership angle)",
+    "Monitor university procurement portal for IT RFPs",
+    "Alternative: Reach out to CS department chair about AWS workshops/training",
+    "Consider: AWS has research credit programs - could position as facilitator",
+    "Reality check: May not be worth effort given procurement barriers"
+  ],
+
+  "sources_consulted": [
+    "https://bgsu.edu",
+    "https://www.bgsu.edu/its.html (ITS department)",
+    "https://www.bgsu.edu/arts-and-sciences/computer-science.html",
+    "Web search: BGSU students employees IT department cloud",
+    "Web search: BGSU IT jobs cloud engineer AWS",
+    "LinkedIn: Bowling Green State University"
+  ],
+
+  "analysis_notes": "BGSU represents a **CLASSIC UNIVERSITY CLOUD CONSULTING OPPORTUNITY** - which means both potential AND challenges.\n\n**THE UNIVERSITY CLOUD PARADOX:**\n\nUniversities are interesting targets because:\n- ✓ They NEED cloud (research computing, online learning, data storage)\n- ✓ They have BUDGET (government funding + grants + tuition)\n- ✓ They're STABLE (won't go out of business)\n- ✓ They VALUE innovation (academic culture)\n\nBUT:\n- ✗ Procurement is PAINFUL (RFPs, competitive bidding, committees)\n- ✗ Decision-making is SLOW (academic bureaucracy)\n- ✗ Budget is CONSTRAINED (public funding, oversight)\n- ✗ They often have INTERNAL IT (ITS department may resist outsourcing)\n\n**BGSU SPECIFICALLY:**\n\n**PROS:**\n- Tier-one research university (has research computing needs)\n- Computer Science teaches cloud (understands value)\n- BGSU Online (cloud infrastructure opportunity)\n- Research programs (water quality, opioid crisis) = data-intensive\n- Ohio location (closer to your market than international)\n\n**CONS:**\n- No cloud job postings (not actively building cloud team)\n- ITS department exists (may handle internally)\n- Public university procurement (requires RFP compliance)\n- Already using Microsoft cloud (OneDrive/O365 = Azure ecosystem)\n\n**REALISTIC OPPORTUNITIES:**\n\n**1. Research Computing (BEST BET)**\n- Many university researchers need cloud for data processing\n- AWS has research credit programs (free compute for research)\n- Faculty often lack cloud expertise\n- **YOUR ANGLE:** 'We help researchers leverage AWS research credits'\n- **CONTACT:** Find faculty in sciences doing data-heavy research\n- **PROS:** Can bypass procurement for small projects, direct to faculty\n- **CONS:** Small contracts, grant-dependent\n\n**2. AWS Training for CS Department (ENTRY POINT)**\n- CS teaches cloud but may lack hands-on AWS expertise\n- **YOUR ANGLE:** Guest lectures, workshops, AWS certification prep\n- **CONTACT:** CS department chair or cloud computing professor\n- **PROS:** Easy entry, builds relationship, low bureaucracy\n- **CONS:** Low/no revenue, time investment\n\n**3. Grant Partnership (LONG GAME)**\n- Faculty write grants requiring cloud infrastructure\n- **YOUR ANGLE:** 'Include us in grant as cloud consulting partner'\n- **PROS:** Large projects if grant funds, multi-year engagements\n- **CONS:** Grant success rate ~10-20%, very slow timeline\n\n**4. Formal RFP Response (HARD MODE)**\n- Wait for ITS to post cloud migration RFP\n- Compete against big vendors (IBM, Accenture, etc.)\n- **PROS:** Large contract if you win\n- **CONS:** 3-person firm unlikely to win vs. enterprise vendors\n\n**SCORE: 48/100 (MEDIUM PRIORITY)**\n\nThis reflects:\n- Real cloud needs exist (16/25 cloud need score)\n- Financially stable (20/30 stability)\n- BUT: Accessibility is terrible (4/10)\n- AND: Fit is challenging (10/20)\n\n**RECOMMENDATION:**\n\n**MEDIUM PRIORITY - But pursue strategically:**\n\n**DO:**\n- Explore research computing angle (best ROI)\n- Offer free AWS workshop to CS department (relationship building)\n- Connect with individual faculty, not ITS bureaucracy\n- Position around AWS research credits (added value)\n\n**DON'T:**\n- Chase big ITS contracts (you'll lose to enterprise vendors)\n- Expect fast decisions (university timeline = 6-12 months minimum)\n- Invest heavily without inside champion\n\n**BEST STRATEGY:**\n\nBGSU could be a **SIDE OPPORTUNITY** - not primary focus, but worth a low-effort approach:\n\n1. LinkedIn: Find CS faculty teaching cloud computing\n2. Email: 'Free AWS workshop for your students?'\n3. If they bite: Deliver workshop, build relationship\n4. Then: 'Any research projects needing cloud help?'\n5. Leverage: Faculty champion can unlock research computing opportunities\n\nThis avoids procurement hell while potentially accessing grant-funded projects.\n\n**REALITY CHECK:**\n\nFor a 3-person consultancy with day jobs:\n- Universities are SLOW (months to years)\n- Revenue per hour invested is LOW\n- BUT: Can be steady, long-term clients once relationship exists\n\n**BETTER TARGETS:**\n- Private companies (faster decisions)\n- 50-500 employee range (budget + accessibility)\n- Companies actively hiring cloud engineers (clear need signal)\n\nBGSU is worth a LIGHT TOUCH approach but not aggressive pursuit."
+}

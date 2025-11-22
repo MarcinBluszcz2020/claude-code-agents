@@ -1,0 +1,22 @@
+company,email,email_type,score,source,confidence,notes
+smuggs.com,,,,,No emails found - resort booking platform
+newchapter.com,,,,,No emails found - e-commerce site
+epactnetwork.com,info@epactnetwork.com,info,7,footer,high,Emergency preparedness network contact
+castleton.edu,info@castleton.edu,info,7,footer,high,University general contact
+biotek.com,,,,,SSL certificate error - hostname mismatch
+datablend.com,info@datablend.com,info,7,header/footer,high,Data analytics company contact
+benjerry.com,,,,,403 Forbidden - access denied
+belezadocampo.com.br,,,,,ETIMEDOUT - connection timeout (Brazil)
+thesca.org,,,,,No emails found - phone only (412-939-7461)
+doyon.com,,,,,No emails found - Alaska Native corporation
+durango.gob.mx,,,,,SSL certificate error - Mexican government site
+juneau.org,,,,,No emails found - city government CSS/JS only
+sealaska.com,,,,,No emails found - contact form only
+alaskaseafood.org,,,,,403 Forbidden - access denied
+arcticbike.org,,,,,Directory listing only - no content
+alaskatel.com,,,,,No emails found - Wix site with no contact info
+fleetplan.net,,,,,DNS not found (ENOTFOUND)
+reveldigital.com,support@reveldigital.com,support,5,footer,high,Digital signage platform support
+reveldigital.com,sales@reveldigital.com,sales,9,footer,high,Sales contact - high business value
+h5p.org,,,,,No emails found - contact form only
+prairiepublic.org,,,,,No emails found - public radio station

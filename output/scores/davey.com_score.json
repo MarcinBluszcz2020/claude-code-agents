@@ -1,0 +1,140 @@
+{
+  "company_domain": "davey.com",
+  "company_name": "The Davey Tree Expert Company",
+  "evaluated_at": "2025-11-15T12:00:00Z",
+  "evaluator": "company-scorer",
+
+  "overall_score": 52,
+  "recommendation": "MEDIUM_PRIORITY",
+
+  "score_breakdown": {
+    "financial_stability": {
+      "score": 26,
+      "max": 30,
+      "evidence": "Employee-owned since 1979, $1.87B revenue (March 2025), up from $1.74B (Dec 2024). Consistent growth from $714M (2013). 12,000 employees. Largest employee-owned company in Ohio. Privately held, established 1880."
+    },
+    "cloud_need": {
+      "score": 14,
+      "max": 25,
+      "evidence": "Traditional service company with some tech (TreeKeeper software, asset management). No evidence of cloud migration projects. Limited IT job postings (System Admin, no cloud roles found). Likely on legacy infrastructure. Moderate modernization potential."
+    },
+    "company_fit": {
+      "score": 14,
+      "max": 20,
+      "evidence": "Large company (12,000 employees) but traditional industry (tree services, landscaping). Not tech-native, so good fit for basic cloud consulting. However, size may require enterprise vendor processes. Mid-tier fit - doable but challenging."
+    },
+    "reputation": {
+      "score": 11,
+      "max": 15,
+      "evidence": "Glassdoor 3.6/5 (728 reviews), 69% would recommend to friend. Positive outlook (64%). Some concerns about high turnover and management. No major payment issues found. Generally good but not stellar."
+    },
+    "accessibility": {
+      "score": 6,
+      "max": 10,
+      "evidence": "Established company with traditional structure. Employee-owned may mean slower decision-making. General contact available but may need to navigate to IT leadership. Mid-market accessibility."
+    }
+  },
+
+  "company_profile": {
+    "industry": "Environmental Services / Landscaping / Arboriculture",
+    "employee_count": 12000,
+    "estimated_revenue": "$1.87B (March 2025)",
+    "funding_stage": "Privately held / Employee-owned (ESOP)",
+    "total_funding": "$19.4M grant identified (2007), ESOP structure since 1979",
+    "founded_year": 1880,
+    "headquarters": "Kent, Ohio",
+    "business_model": "B2B and B2C Services - Tree care, landscaping, utility services, environmental consulting"
+  },
+
+  "cloud_maturity": {
+    "current_state": "Legacy/Traditional - Some Technology Adoption",
+    "aws_usage": "Unknown - likely minimal or on-premise",
+    "migration_indicators": [
+      "Offers TreeKeeper inventory management software (suggests some tech capability)",
+      "Multi-location operations (200+ branches) requiring coordination systems",
+      "Online account management portal exists",
+      "Lab facilities with 'state-of-the-art tools'",
+      "However: No cloud engineer job postings found",
+      "No public mentions of cloud infrastructure or AWS"
+    ],
+    "opportunity_type": "Potential Cloud Migration (Office Systems, Field Management Apps) or Hybrid Infrastructure Optimization"
+  },
+
+  "contact_info": {
+    "primary_email": "Not found on main site",
+    "sales_email": "Not found",
+    "general_email": "Contact form available",
+    "phone": "Not immediately visible",
+    "linkedin_company": "https://linkedin.com/school/bowling-green-state-university/"
+  },
+
+  "red_flags": [
+    "⚠️ Large company size (12k employees) may have complex procurement",
+    "⚠️ High turnover mentioned in Glassdoor reviews",
+    "⚠️ Employee-owned structure = potentially slow decision-making",
+    "⚠️ Traditional industry may have lower tech budgets",
+    "⚠️ No evidence of active cloud initiatives or IT modernization"
+  ],
+
+  "green_flags": [
+    "✓ Financially very stable ($1.87B revenue, consistent growth)",
+    "✓ Traditional company = likely has legacy systems needing modernization",
+    "✓ Multi-location operations (coordination needs)",
+    "✓ Offers software products (TreeKeeper) = understands tech value",
+    "✓ Employee-owned = long-term thinking, not short-term cost-cutting",
+    "✓ No major reputation issues",
+    "✓ Research-driven culture (200-acre SEED campus, labs)"
+  ],
+
+  "opportunities": [
+    {
+      "type": "Cloud Migration - Office Systems",
+      "description": "Migrate business operations, HR, finance systems to AWS cloud. 200+ locations could benefit from centralized cloud infrastructure.",
+      "confidence": "Medium",
+      "estimated_timeline": "12-18 months",
+      "engagement_model": "Project-based consulting (after-hours suitable)"
+    },
+    {
+      "type": "Field Management App Modernization",
+      "description": "TreeKeeper and asset management tools could be cloud-enabled for better mobile access and data sync across locations.",
+      "confidence": "Medium-Low",
+      "estimated_timeline": "6-12 months",
+      "engagement_model": "Consulting + potential staff aug if they decide to build in-house"
+    },
+    {
+      "type": "Infrastructure Assessment",
+      "description": "AWS Well-Architected review for any existing cloud workloads, or cloud readiness assessment for legacy systems.",
+      "confidence": "Medium",
+      "estimated_timeline": "1-3 months",
+      "engagement_model": "Short consulting engagement (good entry point)"
+    }
+  ],
+
+  "competitor_analysis": {
+    "is_competitor": false,
+    "is_aws_partner": false,
+    "partner_tier": "N/A",
+    "notes": "Tree services company, not tech/consulting. Zero competition risk."
+  },
+
+  "next_steps": [
+    "Research IT leadership at Davey Tree (LinkedIn)",
+    "Find contact for CTO, CIO, or IT Director",
+    "Pitch: 'Cloud optimization for multi-location operations'",
+    "Emphasize: Cost savings on infrastructure for 200+ locations",
+    "Entry strategy: Offer free AWS cost assessment or infrastructure review",
+    "Alternative: Look for TreeKeeper product team - could need cloud expertise"
+  ],
+
+  "sources_consulted": [
+    "https://davey.com",
+    "https://www.zippia.com/davey-tree-expert-company-careers-41002/revenue/",
+    "https://www.glassdoor.com/Overview/Working-at-The-Davey-Tree-Expert-Company-EI_IE4699.11,40.htm",
+    "https://jobs.davey.com/",
+    "Web search: Davey Tree company employees revenue funding",
+    "Web search: Davey Tree Glassdoor reviews",
+    "Web search: Davey Tree IT jobs cloud engineer"
+  ],
+
+  "analysis_notes": "Davey Tree is a MEDIUM-PRIORITY target with interesting characteristics:\n\n**PROS:**\n- Financially stable and growing ($1.87B revenue)\n- Traditional industry = likely has legacy tech needing modernization\n- Multi-location operations create real cloud use case\n- Employee-owned = values long-term investments\n- Not a tech company = won't dismiss 3-person consultancy as 'too small'\n\n**CONS:**\n- Large size (12k employees) may require enterprise vendor process\n- No visible cloud initiatives or IT hiring signals\n- Traditional industry may have lower IT budgets\n- Employee ownership could mean slower decision cycles\n\n**THE OPPORTUNITY:**\nDavey manages 200+ locations with field workers, equipment tracking, customer data, and business operations. This screams 'cloud infrastructure opportunity' - especially for:\n1. Centralizing IT instead of managing on-premise at each location\n2. Mobile field apps for tree crews\n3. Data analytics across locations\n\nHowever, they're not actively signaling cloud need (no cloud job postings, no press about modernization). This means:\n- They might not KNOW they need cloud help yet\n- OR they're satisfied with current setup\n- OR they have internal IT handling it quietly\n\n**RECOMMENDATION:**\nMedium priority. Worth a targeted outreach, but don't spend weeks on it. \n\n**BEST APPROACH:**\n1. Find their IT leadership on LinkedIn\n2. Offer something low-commitment: 'Free AWS cost assessment for multi-location enterprises'\n3. Position around pain points: 'Managing IT infrastructure across 200+ locations'\n4. If they bite, great. If not, move on quickly.\n\n**REALITY CHECK:**\nThis is a 'maybe' target. Score of 52/100 reflects that - not bad, not great. They have money and need, but unclear if they recognize the need or are ready to act on it. Good for a quick pitch but not worth extensive pursuit.\n\n**BETTER TARGETS WOULD HAVE:**\n- Cloud migration mentioned in job postings\n- Recent press about digital transformation\n- CTO/CIO actively posting about modernization on LinkedIn\n- Tech job openings (signals budget + initiative)"
+}

@@ -1,0 +1,22 @@
+company,email,email_type,score,source,confidence,notes
+textron.com,,,,,No emails found - contact form only
+apc.com,,,,,Redirects to se.com - APC country selector
+glenville.edu,admissions@glenville.edu,admissions,5,footer,high,University admissions contact
+bdtonline.com,,,,,451 error - access restricted
+gosugamers.net,,,,,No emails found - esports news portal
+ageberry.com,,,,,No emails found - contact form only
+wvpublic.org,InsideAppalachia@wvpublic.org,other,3,podcast section,medium,Podcast contact - low business value
+adscendmedia.com,advertising@adscendmedia.com,sales,9,JSON-LD schema,high,Advertising/customer support - high business value
+trainerroad.com,support@trainerroad.com,support,5,support section,high,Customer support for cycling training platform
+wesbanco.com,,,,,No emails found - phone only (800-905-9043)
+steptoe-johnson.com,press@steptoe-johnson.com,press,3,footer,high,Law firm press inquiries - low business value
+steptoe-johnson.com,hoa@steptoe-johnson.com,business,7,footer,high,HOA inquiries - moderate business value
+buffalochip.com,,,,,No emails found - phone only (605-347-9000)
+helplinecenter.org,HELP@HELPLINECENTER.ORG,info,7,footer,high,Helpline center general contact
+northern.edu,info@northern.edu,info,7,footer,high,University general contact
+propertymeld.com,,,,,No emails found - property management platform
+midco.com,,,,,ETIMEDOUT - connection timeout
+blackhillsenergy.com,,,,,ECONNRESET - connection error
+burlingtonvt.gov,burlingtontownclerk@burlingtonvt.gov,government,3,footer,high,City clerk email - government entity
+readingplus.com,,,,,No emails found - contact form only
+northcountry.org,info@northcountry.org,info,7,footer,medium,Credit union general inquiries (Cloudflare encoded)

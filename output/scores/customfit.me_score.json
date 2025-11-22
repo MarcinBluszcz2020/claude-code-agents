@@ -1,0 +1,123 @@
+{
+  "company_domain": "customfit.me",
+  "company_name": "Lehigh CustomFit (PPE Safety Footwear) - NOTE: Domain confusion with CustomFit.ai",
+  "evaluated_at": "2025-11-15T12:15:00Z",
+  "evaluator": "company-scorer",
+
+  "overall_score": 35,
+  "recommendation": "LOW_PRIORITY",
+
+  "score_breakdown": {
+    "financial_stability": {
+      "score": 12,
+      "max": 30,
+      "evidence": "AMBIGUOUS DATA - Website shows Lehigh CustomFit (established PPE company, '100 years' celebration mentioned), but domain search results point to CustomFit.ai (Indian startup, $500K funding, $1.3M revenue 2024, 10-14 employees). Unclear which entity controls the domain. Assuming startup: Low stability."
+    },
+    "cloud_need": {
+      "score": 8,
+      "max": 25,
+      "evidence": "IF CustomFit.ai (website personalization SaaS): Already cloud-native, likely on AWS/GCP/Azure. No migration need. IF Lehigh CustomFit (PPE): Traditional business with online portal + 3D scanners = moderate tech, potential cloud need for scaling. Mixed signals."
+    },
+    "company_fit": {
+      "score": 6,
+      "max": 20,
+      "evidence": "IF startup (10-14 employees): Good size fit BUT wrong industry (they build cloud products, not use consulting). IF Lehigh (larger PPE): Better industry fit but unclear size/structure. Poor fit either way - startup too tech-savvy, PPE company too niche/unclear."
+    },
+    "reputation": {
+      "score": 6,
+      "max": 15,
+      "evidence": "No Glassdoor reviews found for either entity. CustomFit.ai has investors (First Cheque, Java Capital) suggesting some validation. Lehigh CustomFit shows professionalism on site but no independent reviews found. Limited reputation data."
+    },
+    "accessibility": {
+      "score": 5,
+      "max": 10,
+      "evidence": "IF startup: Small team (10-14) = easier to reach BUT based in Bangalore, India (time zone + cultural challenges). IF Lehigh: Contact forms available but unclear decision-maker access. Moderate accessibility at best."
+    }
+  },
+
+  "company_profile": {
+    "industry": "UNCLEAR - Either (A) B2B SaaS / Website Personalization OR (B) B2B Industrial / PPE Safety Equipment",
+    "employee_count": "10-14 (if CustomFit.ai) OR Unknown (if Lehigh)",
+    "estimated_revenue": "$1.3M (if CustomFit.ai, 2024) OR Unknown (if Lehigh)",
+    "funding_stage": "Seed stage (if CustomFit.ai) OR Established (if Lehigh)",
+    "total_funding": "$500K (if CustomFit.ai) OR N/A",
+    "founded_year": "2017 (CustomFit.ai) OR ~1920s (Lehigh, based on '100 years' reference)",
+    "headquarters": "Bangalore, India (CustomFit.ai) OR Pennsylvania, USA (Lehigh historical)",
+    "business_model": "B2B SaaS (if CustomFit.ai) OR B2B Services + Products (if Lehigh)"
+  },
+
+  "cloud_maturity": {
+    "current_state": "HIGHLY AMBIGUOUS",
+    "aws_usage": "Unknown - depends on which company actually owns domain",
+    "migration_indicators": [
+      "IF CustomFit.ai: Cloud-native SaaS, no migration needed",
+      "IF Lehigh CustomFit: Online portal + 3D scanners suggest some cloud usage",
+      "Website uses Google Tag Manager, LinkedIn tracking = basic cloud services",
+      "No job postings or tech blog found for either entity",
+      "CRITICAL ISSUE: Domain ownership unclear"
+    ],
+    "opportunity_type": "UNCLEAR - Cannot assess without resolving entity identity"
+  },
+
+  "contact_info": {
+    "primary_email": "Not found",
+    "sales_email": "Not found",
+    "general_email": "Contact form only on website",
+    "phone": "Not visible on main page",
+    "linkedin_company": "Not definitively identified"
+  },
+
+  "red_flags": [
+    "🚨 CRITICAL: Domain/entity confusion - Website content doesn't match search results",
+    "🚨 IF CustomFit.ai: Cloud-native startup, wrong target (they don't need cloud help)",
+    "🚨 IF startup: Based in India (geographic/time zone mismatch for boutique consulting)",
+    "⚠️ Very limited public information available",
+    "⚠️ No Glassdoor reviews or reputation data",
+    "⚠️ Small revenue ($1.3M if startup) = limited budget",
+    "⚠️ Cannot verify financial stability"
+  ],
+
+  "green_flags": [
+    "✓ IF startup: VC-backed (shows validation)",
+    "✓ IF startup: Small team = easy to reach decision-makers",
+    "✓ IF Lehigh: Established company with longevity",
+    "✓ Website shows technical sophistication (3D scanners, dashboards)"
+  ],
+
+  "opportunities": [
+    {
+      "type": "CANNOT ASSESS",
+      "description": "Entity identity must be resolved before opportunities can be evaluated",
+      "confidence": "N/A",
+      "estimated_timeline": "N/A",
+      "engagement_model": "N/A"
+    }
+  ],
+
+  "competitor_analysis": {
+    "is_competitor": false,
+    "is_aws_partner": false,
+    "partner_tier": "N/A",
+    "notes": "IF CustomFit.ai: Not competitor but cloud-native SaaS (wrong target type). IF Lehigh: Not competitor at all."
+  },
+
+  "next_steps": [
+    "❌ DO NOT PURSUE until entity is clarified",
+    "Research: WHOIS lookup for customfit.me domain ownership",
+    "Investigate: Is this Lehigh CustomFit or CustomFit.ai?",
+    "IF startup (CustomFit.ai): SKIP - wrong target (cloud-native, India-based, too small)",
+    "IF Lehigh: Re-evaluate with proper company data",
+    "RECOMMENDED: Skip entirely - too much ambiguity, likely low-value either way"
+  ],
+
+  "sources_consulted": [
+    "https://customfit.me (shows Lehigh CustomFit PPE content)",
+    "https://www.crunchbase.com/organization/customfit-ai",
+    "https://getlatka.com/companies/customfitai",
+    "https://tracxn.com/d/companies/customfit",
+    "Web search: customfit.me company employees funding revenue",
+    "Note: Significant discrepancy between website content and search results"
+  ],
+
+  "analysis_notes": "This evaluation reveals a CRITICAL ISSUE: **Domain/Entity Confusion**\n\n**THE PROBLEM:**\n\nWhen you visit https://customfit.me, you see:\n- Lehigh CustomFit - established PPE (safety footwear) company\n- 'The big 100' celebration (100 years)\n- B2B managed PPE programs\n- Pennsylvania steel mill heritage\n- Professional, established corporate presence\n\nWhen you search 'customfit.me company', you find:\n- CustomFit.ai - Indian SaaS startup (founded 2017)\n- Website personalization platform\n- $500K-$1.3M revenue, 10-14 employees\n- Bangalore headquarters\n- VC-backed (First Cheque, Java Capital)\n\n**THESE ARE TWO COMPLETELY DIFFERENT COMPANIES.**\n\n**POSSIBLE EXPLANATIONS:**\n1. CustomFit.ai owns customfit.me but site content is wrong/old\n2. Lehigh CustomFit owns customfit.me and uses it correctly\n3. Domain recently changed hands\n4. SEO/search confusion between similarly-named companies\n\n**WHY THIS MATTERS FOR SCORING:**\n\nI cannot accurately score without knowing which company actually operates. Here's why:\n\n**IF CustomFit.ai (startup):**\n- AVOID - Cloud-native SaaS startup, they don't need cloud migration\n- Based in India (time zone/cultural challenges)\n- Too small ($1.3M revenue = tiny IT budget)\n- They BUILD cloud products, wrong target type\n- Score would be: ~25/100 (AVOID)\n\n**IF Lehigh CustomFit (PPE company):**\n- MAYBE - Traditional business with tech (3D scanners, portals)\n- Could need cloud help for scaling online platform\n- Established = likely has budget\n- But: No size/revenue data available\n- No cloud initiative signals\n- Score would be: ~45/100 (LOW-MEDIUM PRIORITY)\n\n**CURRENT SCORE: 35/100 (LOW PRIORITY)**\n\nThis reflects:\n- High uncertainty = high risk\n- Limited data availability\n- Either scenario (startup or PPE) has significant downsides\n- Not worth the effort to resolve when other clearer targets exist\n\n**RECOMMENDATION:**\n\n**SKIP THIS COMPANY ENTIRELY.**\n\nReasons:\n1. Too much ambiguity to assess properly\n2. Either entity likely wrong fit (startup = cloud-native, PPE = niche/unclear)\n3. No clear cloud need signals from either\n4. Limited contact info available\n5. Time better spent on clearer opportunities\n\n**IF YOU MUST INVESTIGATE:**\n1. WHOIS lookup on customfit.me\n2. Call the phone number on the website (if present)\n3. LinkedIn search for 'Lehigh CustomFit' vs 'CustomFit.ai' employees\n4. Ask directly: 'Are you the Bangalore startup or the PPE company?'\n\nBut honestly? Not worth it. Move to next target.\n\n**LESSON LEARNED:**\n\nThis case shows why due diligence matters. A domain alone isn't enough - need to verify:\n- Company identity matches domain\n- Search results align with website content\n- Entity is actually who they appear to be\n\nFor a 3-person consultancy, time is precious. Don't waste it on ambiguous targets when clear opportunities exist elsewhere in the batch."
+}

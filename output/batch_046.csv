@@ -1,0 +1,21 @@
+company,email,email_type,score,source,confidence,notes
+loonmtn.com,,,,,No emails found - phone only (603-745-8111)
+memsource.com,,,,,Redirects to phrase.com - no emails found on redirect
+win-waste.com,CustomerCare@win-waste.com,service,5,contact section,high,Customer service email - waste management
+nec.edu,,,,,No emails found - phone only (603-428-2000)
+assurity.com,,,,,ETIMEDOUT - connection timeout
+air1.com,,,,,No emails found - contact form only
+oppd.com,,,,,ETIMEDOUT - connection timeout
+promart.pe,servicioalcliente@promart.pe,service,5,footer,high,Customer service email (Spanish market)
+milanlaser.com,,,,,No emails found - CSS stylesheet only
+icemortgagetechnology.com,,,,,DNS resolution error (EAI_AGAIN)
+buildertrend.com,,,,,No emails found - contact form only
+orientaltrading.com,,,,,DNS resolution error (EAI_AGAIN)
+ameritas.com,,,,,DNS resolution error (EAI_AGAIN)
+companycam.com,,,,,DNS resolution error (EAI_AGAIN)
+holdmyticket.com,,,,,Redirects to tickets.holdmyticket.com - no emails
+donaanacounty.org,,,,,403 Forbidden - access denied
+reelz.com,,,,,No emails found - contact form only
+magpiegames.com,,,,,No emails found - contact form only
+visitalbuquerque.org,,,,,No emails found - contact form only
+pintuco.com.co,,,,,503 Service Unavailable - server error

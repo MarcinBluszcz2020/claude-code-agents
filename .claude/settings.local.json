@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:customfit.me)",
+      "WebFetch(domain:bgsu.edu)",
+      "WebFetch(domain:cars.com)",
+      "WebFetch(domain:chicagotribune.com)",
+      "WebFetch(domain:rldatix.com)",
+      "WebFetch(domain:zs.com)",
+      "WebFetch(domain:partstown.com)",
+      "WebFetch(domain:www.rldatix.com)",
+      "WebFetch(domain:peoplescout.com)",
+      "WebFetch(domain:restaurantbusinessonline.com)",
+      "WebFetch(domain:cmegroup.com)",
+      "WebFetch(domain:revenera.com)",
+      "WebFetch(domain:healthadvocate.com)",
+      "WebFetch(domain:rainn.org)",
+      "WebFetch(domain:elexio.com)",
+      "WebFetch(domain:hartfordfunds.com)",
+      "WebFetch(domain:crothall.com)",
+      "WebFetch(domain:epam.com)",
+      "WebFetch(domain:laithwaites.com)",
+      "WebFetch(domain:siemens-healthineers.com)",
+      "WebFetch(domain:philamuseum.org)",
+      "WebFetch(domain:visitpham.org)",
+      "WebFetch(domain:google.com)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(cat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

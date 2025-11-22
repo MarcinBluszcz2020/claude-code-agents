@@ -1,0 +1,121 @@
+{
+  "company_domain": "procore.com",
+  "company_name": "Procore Technologies",
+  "evaluated_at": "2025-11-15T11:30:00Z",
+  "evaluator": "company-scorer",
+
+  "overall_score": 12,
+  "recommendation": "AVOID",
+
+  "score_breakdown": {
+    "financial_stability": {
+      "score": 30,
+      "max": 30,
+      "evidence": "Public company (NYSE: PCOR), $1.23B TTM revenue, $982M annual revenue (2024), $9.3B market cap, raised $405M through Series I before IPO in 2021. Highly stable and profitable."
+    },
+    "cloud_need": {
+      "score": 0,
+      "max": 25,
+      "evidence": "ALREADY AN AWS STRATEGIC PARTNER with multi-year collaboration agreement (Aug 2025). Cloud-native SaaS platform built on AWS infrastructure with 16 global data centers. Using Amazon Bedrock LLMs for AI. No migration need - they ARE the cloud experts."
+    },
+    "company_fit": {
+      "score": 0,
+      "max": 20,
+      "evidence": "WRONG FIT - They're a large public tech company (4,203 employees) building cloud products. They need enterprise vendors, not 3-person boutique consultancies. They have their own massive engineering team."
+    },
+    "reputation": {
+      "score": 12,
+      "max": 15,
+      "evidence": "Glassdoor 3.7-3.8/5 (1,441+ reviews), 71% would recommend to friend, Glassdoor Best Place to Work 2017-2024. Good reputation but some recent cultural decline noted. No contractor payment issues found."
+    },
+    "accessibility": {
+      "score": 2,
+      "max": 10,
+      "evidence": "Public company with enterprise procurement. support@procore.com available but not appropriate contact for boutique consulting pitch. Would require executive connections."
+    }
+  },
+
+  "company_profile": {
+    "industry": "Construction Technology (ConTech)",
+    "employee_count": 4203,
+    "estimated_revenue": "$982M (2024 annual)",
+    "funding_stage": "Public (NYSE: PCOR)",
+    "total_funding": "$405M pre-IPO",
+    "founded_year": 2002,
+    "headquarters": "Carpinteria, CA",
+    "business_model": "B2B SaaS - Cloud Construction Management Platform"
+  },
+
+  "cloud_maturity": {
+    "current_state": "Cloud-Native Leader / AWS Strategic Partner",
+    "aws_usage": "Extensive - Strategic collaboration agreement with AWS (multi-year)",
+    "migration_indicators": [
+      "NOT APPLICABLE - They don't need migration help",
+      "They are PROVIDING cloud solutions to construction industry",
+      "Using AWS Bedrock, 16 AWS data centers globally",
+      "Listed in AWS Marketplace",
+      "Co-investing with AWS on product development"
+    ],
+    "opportunity_type": "NONE - Wrong target segment"
+  },
+
+  "contact_info": {
+    "primary_email": "support@procore.com",
+    "sales_email": null,
+    "general_email": "support@procore.com",
+    "phone": "+44 0800 368 7703 (UK)",
+    "linkedin_company": "https://linkedin.com/company/procore-technologies"
+  },
+
+  "red_flags": [
+    "🚨 CRITICAL: Already an AWS strategic partner - they're AHEAD of us in cloud maturity",
+    "🚨 CRITICAL: Public company with 4,200+ employees - way too large for 3-person consultancy",
+    "🚨 Cloud-native SaaS company - they BUILD cloud products, don't need cloud help",
+    "⚠️ Would view us as competitor/vendor, not strategic partner",
+    "⚠️ Enterprise procurement processes - impossible to sell to without massive overhead"
+  ],
+
+  "green_flags": [
+    "✓ Financially very stable (public, $1.2B revenue)",
+    "✓ Good reputation (Glassdoor 3.8, Best Place to Work awards)",
+    "✓ No payment issues with vendors/contractors found",
+    "✓ Growing company with positive outlook"
+  ],
+
+  "opportunities": [
+    {
+      "type": "NONE",
+      "description": "No viable opportunities for 3-person AWS consulting boutique",
+      "confidence": "Certain",
+      "estimated_timeline": "N/A",
+      "engagement_model": "N/A"
+    }
+  ],
+
+  "competitor_analysis": {
+    "is_competitor": false,
+    "is_aws_partner": true,
+    "partner_tier": "Strategic Partner (highest level partnership)",
+    "notes": "Not a direct consulting competitor, but they're a cloud-native tech company far beyond our ability to serve. They have partnership tier we could only dream of."
+  },
+
+  "next_steps": [
+    "❌ DO NOT CONTACT - Wrong target segment",
+    "Skip to next company in batch",
+    "Use Procore as example of companies to AVOID (large public cloud-native tech firms)"
+  ],
+
+  "sources_consulted": [
+    "https://procore.com",
+    "https://procore.com/about",
+    "https://investors.procore.com (financial data)",
+    "https://www.crunchbase.com/organization/procore-technologies",
+    "https://www.glassdoor.com/Reviews/Procore-Technologies-Reviews-E691343.htm",
+    "https://www.procore.com/press/procore-and-aws-announce-strategic-collaboration-agreement",
+    "Web search: Procore Technologies employees funding valuation revenue 2024",
+    "Web search: Procore Technologies AWS partnership",
+    "Web search: Procore Technologies Glassdoor reviews"
+  ],
+
+  "analysis_notes": "Procore Technologies is a TEXTBOOK example of the WRONG target for your consulting firm. Here's why:\n\n1. **They're cloud-native, not cloud-curious**: Procore IS a cloud company. They build their entire business on AWS. They don't need migration help - they could teach migration.\n\n2. **AWS Strategic Partner**: They have a multi-year strategic collaboration with AWS announced in Aug 2025. This is the HIGHEST tier of partnership - they're co-investing with AWS on AI and construction tech innovation. You're trying to sell AWS expertise to someone who's AWS's strategic partner.\n\n3. **Scale mismatch**: 4,200 employees vs your 3. Public company with $1.2B revenue vs early-stage boutique. They have hundreds of engineers; you have 3 consultants with day jobs.\n\n4. **Business model mismatch**: They BUILD cloud products. You CONSULT on cloud. They're not a potential client - they're in the same ecosystem but different segment.\n\n5. **Procurement nightmare**: As a public company, they have enterprise vendor processes, legal reviews, compliance requirements. The overhead of becoming their vendor would be prohibitive for a 3-person firm.\n\n**VERDICT**: Total mismatch. Score of 12/100 (mostly for being financially stable and having good reputation). Recommendation: AVOID.\n\n**What you SHOULD look for instead**: \n- Traditional businesses (manufacturing, retail, healthcare) with 50-500 employees\n- Companies TALKING about cloud migration in job posts\n- Private companies, Series A-C funded or bootstrapped profitable\n- Companies where you can reach decision-makers directly\n- Businesses that are tech-enabled but not tech companies\n\nProcore is impressive, but completely wrong for your business model."
+}
